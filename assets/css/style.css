@@ -680,3 +680,7 @@ h1, h2, h3, h4, h5, h6 {
 	.clear	{
 	  zoom:1
 	}
+
+tspan, text {
+  color:white !important;
+}
