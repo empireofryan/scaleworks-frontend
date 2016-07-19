@@ -27,8 +27,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.knob/1.2.13/jquery.knob.min.js"></script>
     <script src="http://www.chartjs.org/build.js"></script>
+    <script src="https://cdn.jsdelivr.net/scrollreveal.js/3.2.0/scrollreveal.min.js"></script>
 
-
+<script>
+window.sr = ScrollReveal();
+sr.reveal('.foo');
+</script>
 
     <script>
     $(function($) {
@@ -250,6 +254,38 @@ html, body {
                   }, 2500);
                 };
               </script>
+
+              <script>
+              $(document).ready(function() {
+
+    /* Every time the window is scrolled ... */
+    $(window).scroll( function(){
+
+        /* Check the location of each desired element */
+        $('.hideme').each( function(i){
+
+            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            /* If the object is completely visible in the window, fade it it */
+            if( bottom_of_window > bottom_of_object ){
+
+                $(this).animate({'opacity':'1'},500);
+
+            }
+
+        });
+
+    });
+
+});
+              </script>
+              <style>
+              .hideme
+{
+    opacity:0;
+}
+              </style>
             </body>
           </html>
 
@@ -264,15 +300,15 @@ html, body {
 
 	<section id="about" name="about"></section>
 	<div id="aboutwrap">
-		<div class="container">
+		<div class="container foo">
 			<div class="row">
-				<div class="col-lg-4 name" style='padding-top:75px !important;'>
+				<div class="col-lg-4 name foo" style='padding-top:75px !important;'>
 
 
 
 
 
-<canvas id="skills" width="300" height="300"></canvas>
+<canvas id="skills" class="hideme" width="300" height="300"></canvas>
 <small>Percentage of Revenue by Share</small>
 <style>
 small
